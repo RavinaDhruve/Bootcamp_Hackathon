@@ -42,16 +42,41 @@
       <h2>Elon Musk Ipsum</h2>
       <div class="container">
       <h5>Select the number of paragraphs</h5>
-      <p></p>
-      <div class="dropdown">
-        <select id="mySelect"> 
-  <option value="apple">1</option>
-  <option value="orange">2</option>
-  <option value="pineapple">3</option>
-  
-</select>
+      
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+$('#mySelect').change(function(e) {
+    var an = $(this).val();
+    switch(an){         
 
-      </div>
+case "apple": $('.button-plans a').attr('href',"get1"); break;
+case "orange": $('.button-plans a').attr('href',"get2"); break;
+case "pineapple": $('.button-plans a').attr('href',"get3"); break;
+            /* and so on*/
+        }
+});
+});
+</script>
+</head>
+<body>
+ <div class="dropdown">
+    <select id="mySelect"> 
+    <option value="apple">1</option>
+    <option value="orange">2</option>
+    <option value="pineapple">3</option>
+    </select>
+  </div>
+
+<div class="button-plans">
+<a href="get1"> Read about him! </a>
+</div>
+
+
+
+
+
+     
     </div>
         <div class="container">
       <h3>About his projects</h3>
@@ -63,11 +88,10 @@
         <div class="radio">
           <label><input type="radio" name="optradio">Space X</label>
         </div>
-        <div class="radio">
-          <label><input type="radio" name="optradio">Books</label>
-        </div>
       </form>
     </div>
+
+
     <button onclick="myFunction()">Get Insights</button>
     </div>
 
@@ -88,6 +112,7 @@
         document.getElementById("demo").innerHTML = "Hello World";
     }
     </script>
+    
     </div>
   </div>
 </div>
