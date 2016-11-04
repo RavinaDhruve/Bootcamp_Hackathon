@@ -36,7 +36,7 @@ var server = app.listen(process.argv[2], function () {
 
 // sample home web page
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname+'/index.html'));
+    res.sendFile(path.join(__dirname+'/elonmusk.html'));
 })
 
 // web page rendered according to user's input
@@ -47,7 +47,7 @@ app.get('/:selection', function(req, res) {
 		if(value)
 		{
 			//console.log("Value exists:", value);
-			fs.readFile('/usr/bin/index.html', 'utf8', function(error, data) {
+			fs.readFile('/usr/bin/elonmusk.html', 'utf8', function(error, data) {
 			    jsdom.env(data, [], function (errors, window) {
 			    	
 			        var $ = require('jquery')(window);
@@ -63,7 +63,7 @@ app.get('/:selection', function(req, res) {
 			
 		else
 		{
-			console.log("Oops no data!");
+			//console.log("Oops no data!");
 			res.send("Oops no data!");
 		}
 	});   
