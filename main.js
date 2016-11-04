@@ -2,6 +2,7 @@ var redis = require('redis')
 var express = require('express')
 var fs      = require('fs')
 var path = require('path')
+var jsdom = require('node-jsdom')
 var app = express()
 
 /////////////////////////////////////////////////////////////////
@@ -61,7 +62,23 @@ app.get('/:selection', function(req, res) {
 		if(value)
 		{
 			console.log("Value exists:", value);
-			res.send("Value exists : "+value+'<br><i>[Request served at '+process.argv[2]+']</i></br>');
+			//res.send("Value exists : "+value+'<br><i>[Request served at '+process.argv[2]+']</i></br>');
+
+			// web page modified 
+			fs.readFile('/usr/bin/index.html', 'utf8', function(error, data) {
+			    jsdom.env(data, [], function (errors, window) {
+			        var $ = require('jquery')(window);
+			        $("p").each(function () {
+			            var content = $(this).text();
+			            $(this).text(content + " modified!");
+			        });
+
+			        fs.writeFile('/usr/bin/out.html', window.document.documentElement.outerHTML,
+			                     function (error){
+			            if (error) throw error;
+			        });
+			    });
+			});
 		}
 			
 		else
@@ -72,5 +89,6 @@ app.get('/:selection', function(req, res) {
 	});
     
 })
+
 
 /////////////////////////////////////////////////////////////////
