@@ -1,0 +1,23 @@
+{
+  "AWSEBDockerrunVersion": 1,
+  "volumes": [
+    {
+      "name": "wolfpack-ipsum",
+      "host": {
+        "sourcePath": "/var/www"
+      }
+    }
+  ],
+  "containerDefinitions": [
+    {
+      "name": "wolfpack-ipsum",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ]
+    }
+  ]
+}

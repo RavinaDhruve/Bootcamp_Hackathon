@@ -9,35 +9,30 @@ var app = express()
 /////////////////////////////////////////////////////////////////
 // REDIS - sample
 var client = redis.createClient(6379, '127.0.0.1', {});
-client.set("R1P1", "All about Elon Musk's journey of Tesla.");
-client.get("R1P1", function(err,value){ console.log(value)});
+var para1 = "All about Elon Musk's journey of Tesla. All about Elon Musk's journey of Tesla." +
+            "All about Elon Musk's journey of Tesla. All about Elon Musk's journey of Tesla." +
+            "All about Elon Musk's journey of Tesla. All about Elon Musk's journey of Tesla." +
+            "All about Elon Musk's journey of Tesla. All about Elon Musk's journey of Tesla." +
+            "All about Elon Musk's journey of Tesla. All about Elon Musk's journey of Tesla.";
+client.set("get1", para1);
+//client.get("P1", function(err,value){ console.log(value)});
 
-client.set("R1P2", "All about Elon Musk's Books.");
-client.get("R1P2", function(err,value){ console.log(value)});
+var para2 = "All about Elon Musk's Books. All about Elon Musk's Books." +
+            "All about Elon Musk's Books. All about Elon Musk's Books." +
+            "All about Elon Musk's Books. All about Elon Musk's Books." +
+            "All about Elon Musk's Books. All about Elon Musk's Books." +
+            "All about Elon Musk's Books. All about Elon Musk's Books.";
+client.set("get2", para2);
+//client.get("P2", function(err,value){ console.log(value)});
 
-// function to set all values
 
-/////////////////////////////////////////////////////////////////
-
-
-
-/////////////////////////////////////////////////////////////////
-// function to get values
-function redis_get(userkey) {
-	// gets the value
-	client.get(userkey, function(err,value){ 
-		if(value)
-		{
-			console.log("Value exists:", value);
-		}
-			
-		else
-		{
-			console.log("Value expired.");
-		}	
-		return value;
-	});
-}
+var para3 = "All about Elon Musk's SpaceX. All about Elon Musk's SpaceX." +
+			"All about Elon Musk's SpaceX. All about Elon Musk's SpaceX." +
+			"All about Elon Musk's SpaceX. All about Elon Musk's SpaceX." +
+			"All about Elon Musk's SpaceX. All about Elon Musk's SpaceX." +
+			"All about Elon Musk's SpaceX. All about Elon Musk's SpaceX." ;
+client.set("get3", para3);
+//client.get("P3", function(err,value){ console.log(value)});
 /////////////////////////////////////////////////////////////////
 
 
@@ -45,15 +40,13 @@ function redis_get(userkey) {
 /////////////////////////////////////////////////////////////////
 // SIMPLE HTTP WEB SERVER
 var server = app.listen(process.argv[2], function () {
-
    var host = server.address().address;
    var port = server.address().port;
-
-   console.log('Example app listening at http://%s:%s', host, port);
+   console.log('Elon Musk Ipsum app listening at http://%s:%s', host, port);
  })
 
 
-// sample web page
+// sample home web page
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname+'/index.html'));
 })
@@ -65,7 +58,7 @@ app.get('/:selection', function(req, res) {
 	client.get(selection, function(err,value){ 
 		if(value)
 		{
-			console.log("Value exists:", value);
+			//console.log("Value exists:", value);
 			fs.readFile('/usr/bin/index.html', 'utf8', function(error, data) {
 			    jsdom.env(data, [], function (errors, window) {
 			    	
@@ -82,10 +75,9 @@ app.get('/:selection', function(req, res) {
 			
 		else
 		{
-			console.log("Value expired.");
-			res.send("");
+			console.log("Oops no data!");
+			res.send("Oops no data!");
 		}
-	});
-    
+	});   
 })
 /////////////////////////////////////////////////////////////////
