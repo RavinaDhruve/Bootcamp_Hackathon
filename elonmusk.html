@@ -68,7 +68,10 @@
         </div>
       </form>
     </div>
+    <button onclick="myFunction()">Get Insights</button>
     </div>
+
+
 
     <div class="col-sm-9">
      <div class="container">
@@ -78,13 +81,16 @@
       </div> 
 	<p></p>
 	<p></p>
+  <p id="demo"></p>
+
+    <script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello World";
+    }
+    </script>
     </div>
   </div>
 </div>
-
-<footer class="container-fluid">
-  <p>Footer Text</p>
-</footer>
 
 </body>
 </html>
