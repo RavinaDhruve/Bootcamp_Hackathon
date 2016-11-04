@@ -5,6 +5,7 @@ MAINTAINER  ravina.dhruve
 # Install dependencies
 
 RUN sudo apt-get -y update
+RUN sudo apt-get -y git
 RUN sudo sudo apt-get -y install npm
 RUN sudo apt-get install -y redis-server
 RUN sudo apt-get install -y nodejs && apt-get install -y nodejs-legacy
@@ -12,6 +13,9 @@ RUN npm install redis && npm install express
 RUN npm install jquery && npm install node-jsdom
 
 EXPOSE 6379
+EXPOSE 80
+
 ENTRYPOINT ["/usr/bin/redis-server"]
 
-EXPOSE 80
+RUN cd /usr/bin/redis-server
+
