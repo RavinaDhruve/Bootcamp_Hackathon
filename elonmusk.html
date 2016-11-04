@@ -42,33 +42,28 @@
       <h2>Elon Musk Ipsum</h2>
       <div class="container">
       <h5>Select the number of paragraphs</h5>
-      <p></p>
-      <div class="dropdown">
-        <select id="mySelect"> 
-  <option value="apple">1</option>
-  <option value="orange">2</option>
-  <option value="pineapple">3</option>
-  
-</select>
+      
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
-      </div>
-    </div>
-        <div class="container">
-      <h3>About his projects</h3>
-      <p>Choose one project</p>
-      <form>
-        <div class="radio">
-          <label><input type="radio" name="optradio">Tesla</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="optradio">Space X</label>
-        </div>
-        <div class="radio">
-          <label><input type="radio" name="optradio">Books</label>
-        </div>
-      </form>
-    </div>
-    <button onclick="myFunction()">Get Insights</button>
+</head>
+<body>
+ <div class="dropdown">
+    <select id="mySelect"> 
+    <option value="tesla1">1 for Tesla</option>
+    <option value="tesla2">2 for Tesla</option>
+    <option value="tesla3">3 for tesla</option>
+    <option value="spacex1">1 for SpaceX</option>
+    <option value="spacex2">2 for SpaceX</option>
+    <option value="spacex3">3 for SpaceX</option>
+    </select>
+  </div>
+
+<div class="button-plans">
+  <p>  </p>
+<a href="getTesla1" onclick='myFunction()'> Read about him! </a>
+</div>
+</div>
+        
     </div>
 
 
@@ -85,9 +80,26 @@
 
     <script>
     function myFunction() {
-        document.getElementById("demo").innerHTML = "Hello World";
-    }
+       // document.getElementById("demo").innerHTML = "Hello World";
+        <script type="text/javascript">
+        $(document).ready(function(e) {
+        $('#mySelect').change(function(e) {
+            var an = $(this).val();
+            switch(an){         
+
+        case "tesla1": $('.button-plans a').attr('href',"getTesla1"); break;
+        case "tesla2": $('.button-plans a').attr('href',"getTesla2"); break;
+        case "tesla3": $('.button-plans a').attr('href',"getTesla3"); break;
+        case "spacex1": $('.button-plans a').attr('href',"getSpaceX1"); break;
+        case "spacex2": $('.button-plans a').attr('href',"getSpaceX2"); break;
+        case "spacex3": $('.button-plans a').attr('href',"getSpaceX3"); break;
+                }
+        });
+        });
+        </script>
+    
     </script>
+    
     </div>
   </div>
 </div>
