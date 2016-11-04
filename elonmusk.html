@@ -44,23 +44,34 @@
       <h5>Select the number of paragraphs</h5>
       
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+$('#mySelect').change(function(e) {
+    var an = $(this).val();
+    switch(an){         
 
+case "1": $('.button-plans a').attr('href',"get1"); break;
+case "2": $('.button-plans a').attr('href',"get2"); break;
+case "3": $('.button-plans a').attr('href',"get3"); break;
+
+            /* and so on*/
+        }
+});
+});
+</script>
 </head>
 <body>
  <div class="dropdown">
     <select id="mySelect"> 
-    <option value="tesla1">1 for Tesla</option>
-    <option value="tesla2">2 for Tesla</option>
-    <option value="tesla3">3 for tesla</option>
-    <option value="spacex1">1 for SpaceX</option>
-    <option value="spacex2">2 for SpaceX</option>
-    <option value="spacex3">3 for SpaceX</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
     </select>
   </div>
 
 <div class="button-plans">
   <p>  </p>
-<a href="getTesla1" onclick='myFunction()'> Read about him! </a>
+<a href="get1"> Read about him! </a>
 </div>
 </div>
         
@@ -78,27 +89,7 @@
       </div>
   <p id="demo"></p>
 
-    <script>
-    function myFunction() {
-       // document.getElementById("demo").innerHTML = "Hello World";
-        <script type="text/javascript">
-        $(document).ready(function(e) {
-        $('#mySelect').change(function(e) {
-            var an = $(this).val();
-            switch(an){         
-
-        case "tesla1": $('.button-plans a').attr('href',"getTesla1"); break;
-        case "tesla2": $('.button-plans a').attr('href',"getTesla2"); break;
-        case "tesla3": $('.button-plans a').attr('href',"getTesla3"); break;
-        case "spacex1": $('.button-plans a').attr('href',"getSpaceX1"); break;
-        case "spacex2": $('.button-plans a').attr('href',"getSpaceX2"); break;
-        case "spacex3": $('.button-plans a').attr('href',"getSpaceX3"); break;
-                }
-        });
-        });
-        </script>
-    
-    </script>
+  
     
     </div>
   </div>
