@@ -14,11 +14,13 @@ client.set("get1", para1);
 //client.get("P1", function(err,value){ console.log(value)});
 
 var para2 = "Tesla Motors (often shortened to Tesla) is an American automaker and energy storage company co-founded by Martin Eberhard, Marc Tarpenning, JB Straubel, Elon Musk and Ian Wright, and is based in Palo Alto, California. The company specializes in electric cars and their powertrain components and also produces battery charging equipment. Tesla first gained widespread attention following its production of the Tesla Roadster, the first electric sports car, in 2008. The company's second vehicle, the Model S, an electric luxury sedan, debuted in 2012. In Q1 2013, Tesla released its stock profits for the first time from its NASDAQ ticker symbol. Global sales for the Model S passed 100K units in December 2015, three and a half years after its introduction, and it was the world's best-selling plug-in vehicle that year.";
+para2 = para2 +"\n"+ para1;
 client.set("get2", para2);
 //client.get("P2", function(err,value){ console.log(value)});
 
 
 var para3 = "Space Exploration Technologies Corporation, better known as SpaceX, is an American aerospace manufacturer and space transport services company headquartered in Hawthorne, California, United States. It was founded in 2002 by Tesla Motors CEO and former PayPal entrepreneur Elon Musk with the goal of creating the technologies to reduce space transportation costs and enable the colonization of Mars. It has developed the Falcon 1 and Falcon 9 launch vehicles, both designed to be reusable, and the Dragon spacecraft which is flown into orbit by the Falcon 9 launch vehicle to supply the International Space Station (ISS) with cargo. A manned version of Dragon is in development. SpaceX is funded by government subsidies and contracts with multiple entities." ;
+para3 = para3 +"\n"+ para2;
 client.set("get3", para3);
 //client.get("P3", function(err,value){ console.log(value)});
 /////////////////////////////////////////////////////////////////
